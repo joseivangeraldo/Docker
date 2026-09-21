@@ -1,0 +1,15 @@
+<HTML>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Exemplo Apache</title>
+</head>
+<body>
+    OK !! Apache Funcionando  !!!!!
+    <?php
+    phpinfo();
+    ?>
+    
+</body> 
+
+</HTML>
+
