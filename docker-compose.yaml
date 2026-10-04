@@ -1,28 +1,9 @@
 version: '3.8'
 
-
 services:
-  mysqlsrv:
-    image: mysql:5.7
-    environment:
-      MYSQL_ROOT_PASSWORD: "Senha123"
-      MYSQL_DATABASE: "testedb"
+  web:
+    build: . # Caminho para o seu Dockerfile
     ports:
-      - "3306:3306"
+      - "8080:80" # [Porta do Computador]:[Porta do Container]
     volumes:
-      - /data/mysql-C:/var/lib/mysql
-    networks:
-      - minha-rede
-
-
-  adminer:
-    image: adminer
-    ports:
-      - "8080:8080"
-    networks:
-      - minha-rede
-
-
-networks:
-minha-rede:
-    driver: bridge
+      - /data/mysql-C:/var/
