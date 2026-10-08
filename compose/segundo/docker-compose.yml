@@ -4,7 +4,7 @@ services:
     ports:
       - "4500:80"
     volumes:
-      - /data/php/:/app
+      - ../data/php/:/app
     networks:
       - minha-rede
 
