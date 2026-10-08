@@ -16,7 +16,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - /data/mysql-C:/var/lib/mysql
+      - ../data/mysql-C:/var/lib/mysql
     networks:
       - minha-rede
 
@@ -27,7 +27,7 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - /data/php/admin/uploads.ini:/usr/local/etc/php/conf.d/php-phpmyadmin.ini
+      - ../data/php/admin/uploads.ini:/usr/local/etc/php/conf.d/php-phpmyadmin.ini
       
     networks:
       - minha-rede
