@@ -1,0 +1,5 @@
+adminer ----> 0.0.0.0:8080->8080/tcp --> terceiro-adminer-1
+mysql:5.7 --> 0.0.0.0:3306->3306/tcp --> terceiro-db-1
+webdevops/php-apache:alpine-php7 --> 0.0.0.0:4500->terceiro-web-1
+
+Adminer admin BD Mysql, bem mais leve que o PHPMyadmin.
