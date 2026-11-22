@@ -1,18 +1,18 @@
-# Usa a imagem oficial mais recente do Alpine Linux
+#docker build -t asm-env .
+#docker run -it --rm -v "$(pwd):/workspace" asm-env
+# Use Alpine Linux for a minimal footprint (~7MB base)
 FROM alpine:latest
 
-# Atualiza os pacotes e instala o Apache (httpd) e o nasm
-# Install Apache
-RUN apk update && apk add apache2 && apk add nano && apk add nasm
-   
-# Cria o diretório padrão para o site do Apache, caso não exista
-#RUN mkdir -p /var/www/localhost/htdocs
+# Install NASM, QEMU (x86_64 system & user emulation), and GNU binutils (for ld/objdump)
+RUN apk add --no-cache \
+    nasm \
+    qemu-system-x86_64 \
+    qemu-x86_64 \
+    binutils \
+    make
 
-# Copia opcionalmente uma página inicial personalizada (descomente se tiver um index.html)
-# COPY index.html /var/www/localhost/htdocs/index.html
+# Set the working directory inside the container
+WORKDIR /workspace
 
-# Expor a porta 80 para acesso web
-EXPOSE 80
-
-# Inicia o Apache em primeiro plano para manter o container rodando
-CMD ["httpd", "-D", "FOREGROUND"]
+# Default to an interactive shell
+CMD ["/bin/sh"]
